@@ -6,7 +6,7 @@
 		$routeProvider
 
 			// route for the home page
-			.when('/editorial_wiki/:id', {
+			.when('/storylist/:id', {
 				templateUrl : 'pages/storylist.html',
 				controller  : 'mainController'
 			})
