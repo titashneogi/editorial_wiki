@@ -1,0 +1,19 @@
+{
+  "name": "editorial_wiki",
+  "version": "1.0.0",
+  "description": "editorial external web page",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/titashneogi/editorial_wiki.git"
+  },
+  "author": "Himanshu Sharmau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/titashneogi/editorial_wiki/issues"
+  },
+  "homepage": "https://github.com/titashneogi/editorial_wiki#readme"
+}
