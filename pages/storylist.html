@@ -1,5 +1,18 @@
 <div class="container">
-	<div ng-repeat="list in storylist">
-		{{list.storyTitle}}
+	<div class="col-xs-12">
+		<div class="row">
+			<div class="col-xs-6" ng-repeat="list in storylist" align="center" style="padding-left: 47px !important;padding-right: 47px;">
+				<div style="background: #F5F5F5;">
+					<h3 style="padding-top: 15px;padding-bottom: 15px;">{{list.storyTitle}}</h3>
+				</div>
+				<div align= "left">
+					<p style="font-size: 125%;margin-left: 10px;color: #565656;">Description:- {{list.description}}</p>
+				</div>
+				<div align= "left">
+					<p style="font-size: 100%;margin-left: 10px;color: #565656;">ETA:- {{list.eta}}</p>
+				</div>
+				<!-- 			<p><a class="btn btn-default" href="#" role="button">View details »</a></p> -->
+			</div>
+		</div>
 	</div>
 </div>

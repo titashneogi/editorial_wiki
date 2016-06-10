@@ -1,5 +1,5 @@
 	// create the module and name it Winnerz
-	var Editorial = angular.module('Editorial', ['ngRoute','ngStamplay']);
+	var Editorial = angular.module('Editorial', ['ngRoute','ngStamplay','ui.bootstrap']);
 
 	// configure our routes
 	Editorial.config(function($routeProvider) {
@@ -16,13 +16,11 @@
 	// create the controller and inject Angular's $scope
 	Editorial.controller('mainController', function($scope, $routeParams, $http,$stamplay) {
 		var id = $routeParams.id;
-		Stamplay.Query('object','draft_story').equalTo('username', id).exec().then(function(response){
-			console.log("======response==========",response);
-			$scope.storylist = response.data;
+		Stamplay.Object("draft_story").get({page: 1, per_page: 100,username: id}).then(function(res) {
+			$scope.storylist = res.data;
 			$scope.$apply();
-			console.log($scope.storylist[0].storyTitle);
-		}, function(error) {
-			console.log("======error==========",error);
+			console.log(res);
+		}, function(err) {
+			console.log(err);
 		})
-
 	});
