@@ -1,0 +1,16 @@
+{
+  "name": "editorial_extra",
+  "description": "",
+  "main": "",
+  "authors": [
+    "himanshu"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "angular-stamplay": "^0.0.2",
+    "angular-bootstrap": "^1.3.3",
+    "angular": "^1.5.7",
+    "angular-route": "^1.5.7"
+  }
+}

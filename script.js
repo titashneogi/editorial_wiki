@@ -14,13 +14,65 @@
 	});
 
 	// create the controller and inject Angular's $scope
-	Editorial.controller('mainController', function($scope, $routeParams, $http,$stamplay) {
+	Editorial.controller('mainController', function($scope, $rootScope,$routeParams, $http, $stamplay, $uibModal) {
 		var id = $routeParams.id;
 		Stamplay.Object("draft_story").get({page: 1, per_page: 100,username: id}).then(function(res) {
 			$scope.storylist = res.data;
+			$rootScope.list = res.data;
 			$scope.$apply();
-			console.log(res);
 		}, function(err) {
 			console.log(err);
 		})
+
+		$scope.animationsEnabled = true;
+		$scope.open = function (index) {
+			$rootScope.index = index;
+			var modalInstance = $uibModal.open({
+				animation: $scope.animationsEnabled,
+				templateUrl: 'myModalContent.html',
+				controller: 'ModalInstanceCtrl',
+				size: undefined
+			});
+
+			modalInstance.result.then(function (newstory) {
+				$scope.storylist[$rootScope.index].description = newstory.description
+			}, function () {
+				console.log("modal closed")
+			});
+		};
+
+		$scope.toggleAnimation = function () {
+			$scope.animationsEnabled = !$scope.animationsEnabled;
+		};
+	});
+
+	Editorial.controller('ModalInstanceCtrl', function($scope,$rootScope,$uibModalInstance,$filter) {
+		var a = new Date($rootScope.list[$rootScope.index].eta);
+		$scope.data= {};
+		$scope.data= {
+			storyTitle : $rootScope.list[$rootScope.index].storyTitle,
+			storyDescription: $rootScope.list[$rootScope.index].description,
+			eta: a
+		};
+
+		$scope.ok = function () {
+			$scope.eta= $filter('date')($scope.data.eta, "yyyy-MM-dd");
+
+			var updateData = {
+				storyTitle : $scope.data.storyTitle,
+				description: $scope.data.storyDescription,
+				eta: $scope.eta
+			};
+			Stamplay.Object("draft_story").update([$rootScope.list[$rootScope.index].id], updateData).then(function(res) {
+				console.log(res)
+				$uibModalInstance.close(res);
+			}, function(err) {
+				// Handle Error
+			})
+			
+		};
+
+		$scope.cancel = function () {
+			$uibModalInstance.dismiss('cancel');
+		};
 	});
