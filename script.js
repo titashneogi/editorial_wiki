@@ -10,6 +10,10 @@
 				templateUrl : 'pages/storylist.html',
 				controller  : 'mainController'
 			})
+			.when('/setup', {
+				templateUrl : 'pages/setup.html',
+				controller  : 'setupController'
+			})
 
 	});
 
@@ -69,10 +73,30 @@
 			}, function(err) {
 				// Handle Error
 			})
-			
 		};
-
 		$scope.cancel = function () {
 			$uibModalInstance.dismiss('cancel');
 		};
+	});
+	
+	Editorial.controller('setupController', function($scope,$http) {
+		console.log("+++++++++++++++++++++++++");
+		$scope.save =function(){
+			console.log($scope.data);
+			$http({
+			    url: 'http://localhost:3000/setup/',
+			    dataType: 'json',
+			    method: 'POST',
+			    data: $scope.data,
+			    headers: {
+			        "Content-Type": "application/json"
+			    }
+
+			}).success(function(response){
+				alert("you have changed the questions");
+
+			}).error(function(error){
+			    $scope.error = error;
+			});
+		}
 	});

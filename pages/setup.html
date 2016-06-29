@@ -1,0 +1,79 @@
+<div>
+	<h3 >Edit Bot Response</h3>
+</div>
+<div class="container" style="margin-right: 70px;margin-left: 70px;">
+	<form name="myForm">
+		<p class="form-group">
+			<label>Number OF Stories</label>
+			<input type="text" placeholder="How many story ideas do you have for now ? I will loop through that many times in this conversation." ng-model="data.numberOFStories" class="form-control" required>
+		</p>
+		<p class="form-group">
+			<label>Continue To Story Title</label>
+			<input type="text" placeholder="Awesome! Upnext, some story details." ng-model="data.continueToStoryTitle" class="form-control" required>
+		</p>
+		<p class="form-group">
+			<label>Story Title</label>
+			<input type="text" placeholder="What is the name of your story #" ng-model="data.story_title" class="form-control" required>
+		</p>
+		<p class="form-group">
+			<label>Same Story Title Reply</label>
+			<input type="text" placeholder="Looks like you already have a similar story. Do something different this time." ng-model="data.sameStoryTitleReply" class="form-control" required>
+		</p>
+		<p class="form-group">
+			<label>Story description</label>
+			<input type="text" placeholder="Give me a short description that will help others understand what this story is about. The more information, the merrier - but not the whole story either. :slightly_smiling_face:" ng-model="data.Description" class="form-control" required>
+		</p>
+		<p class="form-group">
+			<label>ETA</label>
+			<input type="text" placeholder="Hate to push you, but I must ask - What's the ETA? Please reply in mm-dd format only" ng-model="data.eta" class="form-control" required>
+		</p>
+		<p class="form-group">
+			<label>Other Information</label>
+			<input type="text" placeholder="Anything else you want to mention? If you @mention people who you need stuff from, I can remind them about this." ng-model="data.otherInfo" class="form-control" required>
+		</p>
+		<p class="form-group">
+			<label>Iteration Complete</label>
+			<input type="text" placeholder="Ok, looks like you are done on this one." ng-model="data.iteration_complete" class="form-control" required>
+		</p>
+		<p class="form-group">
+			<label>Story Title To Edit</label>
+			<input type="text" placeholder="Which idea you want to Edit? Stories you have created" ng-model="data.storyTitleToEdit" class="form-control" required>
+		</p>
+		<p class="form-group">
+			<label>Story Title Name To Edit</label>
+			<input type="text" placeholder="Please Enter story name which you want to edit" ng-model="data.storyTitleNameToEdit" class="form-control" required>
+		</p>
+		<p class="form-group">
+			<label>New Story Title</label>
+			<input type="text" placeholder="What is the new name of your story?" ng-model="data.newStoryTitle" class="form-control"
+			required>
+		</p>
+		<p class="form-group">
+			<label>Same Story Title Reply Edit</label>
+			<input type="text" placeholder="You have Already existing Story with this name, Please enter Diffrent name" ng-model="data.sameStoryTitleReplyEdit" class="form-control" required>
+		</p>
+		<p class="form-group">
+			<label>Description To Edit</label>
+			<input type="text" placeholder="Give me a short description that will help others understand." ng-model="data.descriptionToEdit" class="form-control" required>
+		</p>
+		<p class="form-group">
+			<label>ETA To Edit</label>
+			<input type="text" placeholder="What's the ETA? Please reply in mm-dd format only" ng-model="data.etaToEdit" class="form-control" required>
+		</p>
+		<p class="form-group">
+			<label>Other Info to Edit</label>
+			<input type="text" placeholder="Anything else you want to mention?" ng-model="data.otherInfotoEdit" class="form-control" required>
+		</p>
+		<p class="form-group">
+			<label>Edit Complete</label>
+			<input type="text" placeholder="Story editing complete." ng-model="data.editComplete" class="form-control" required>
+		</p>
+		<p class="form-group">
+			<label>Story Link</label>
+			<input type="text" placeholder="To see your Stories List please Visit -> http://159.203.111.229/editorial_wiki/#/storylist/" ng-model="data.storyLink" class="form-control" required>
+		</p>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="save()" ng-disabled="myForm.$invalid">Save</button>
+</div>
