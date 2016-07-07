@@ -83,7 +83,8 @@
 		};
 	});
 	
-	Editorial.controller('setupController', function($scope,$http) {
+	Editorial.controller('setupController', function($scope,$http,$routeParam,$rootScope) {
+		$rootScope.ID = $routeParams.id;
 		console.log("+++++++++++++++++++++++++");
 		$scope.save =function(){
 			console.log($scope.data);
