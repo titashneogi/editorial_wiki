@@ -3,56 +3,82 @@
 <html ng-app="Editorial">
   <head>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/editorial_wiki/bower_components/angular-bootstrap/ui-bootstrap-csp.css" />
-    <link rel="stylesheet" href="/editorial_wiki/bower_components/angular/angular-csp.css" />
+    <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css" />
+    <link rel="stylesheet" href="bower_components/angular/angular-csp.css" />
+    <link rel="stylesheet" href="style.css" />
 
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-    <script src="/editorial_wiki/stamplay.min.js"></script>
-    <script src="/editorial_wiki/bower_components/angular/angular.min.js"></script>
-    <script src="/editorial_wiki/bower_components/angular-route/angular-route.js"></script>
-    <script src="/editorial_wiki/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
-    <script src="/editorial_wiki/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="/editorial_wiki/bower_components/angular-stamplay/angular-stamplay.js"></script>
+    <script src="stamplay.min.js"></script>
+
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/jquery-bridget/jquery-bridget.js"></script>
+  <script src="bower_components/ev-emitter/ev-emitter.js"></script>
+  <script src="bower_components/desandro-matches-selector/matches-selector.js"></script>
+  <script src="bower_components/fizzy-ui-utils/utils.js"></script>
+  <script src="bower_components/get-size/get-size.js"></script>
+  <script src="bower_components/outlayer/item.js"></script>
+  <script src="bower_components/outlayer/outlayer.js"></script>
+  <script src="bower_components/masonry/masonry.js"></script>
+  <script src="bower_components/imagesloaded/imagesloaded.js"></script>
+ <!--  <script src="bower_components/angular/angular.js"></script> -->
+  
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-masonry/angular-masonry.js"></script>
+    <script src="bower_components/angular-stamplay/angular-stamplay.js"></script>
     <script src="script.js"></script>
   </head>
   <!-- define angular controller -->
   <body>
-    <script> Stamplay.init("editorial"); </script>
-     <script type="text/ng-template" id="myModalContent.html">
-        <div class="modal-header">
-            <h3 class="modal-title">Edit Story</h3>
-        </div>
-        <div class="modal-body">
-          <p class="form-group">
-            <label>Story Title</label>
-            <input type="text" ng-model="data.storyTitle" class="form-control">
-          </p>
-          <p class="form-group">
-            <label>Story Description</label>
-            <input type="text" ng-model="data.storyDescription" class="form-control">
-          </p>
-          <p class="form-group">
-            <label>ETA</label>
-            <input type="date" ng-model="data.eta" class="form-control">
-          </p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-        </div>
-    </script>
-    <nav class="navbar navbar-default" style="margin-bottom: 10px;">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" style="font-size: 195%;">Gandalf</a>
-        </div>
-      </div>
-    </nav>
-    <div id="main">
-      <div ng-view></div>
+  <script> Stamplay.init("editorial"); </script>
+  <script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+      <h3 class="modal-title">Edit Story</h3>
     </div>
-    <footer class="text-center">
-    </footer>
+    <div class="modal-body">
+      <p class="form-group">
+        <label>Story Title</label>
+        <input type="text" ng-model="data.storyTitle" class="form-control">
+      </p>
+      <p class="form-group">
+        <label>Story Description</label>
+        <input type="text" ng-model="data.storyDescription" class="form-control">
+      </p>
+      <p class="form-group">
+        <label>ETA</label>
+        <input type="date" ng-model="data.eta" class="form-control">
+      </p>
+    </div>
+    <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+  </script>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+    <a href="#/storylist/{{ID}}">User Stories</a>
+    <a href="#/allStories">All Stories</a>
+    <a href="#/setup/{{ID}}">Setup</a>
+  </div>
+  <div style="background: #f0ad4e;min-height: 45px;vertical-align: text-top" >
+    <span style="font-size: 25px;top: 7px;cursor:pointer;padding-left: 0px;margin-left: 0px;left: 1%;" onclick="openNav()" class="glyphicon glyphicon-align-justify"></span>
+  </div>
+  <script>
+    function openNav() {
+    document.getElementById("mySidenav").style.display = "block";
+    }
+
+    function closeNav() {
+    document.getElementById("mySidenav").style.display = "none";
+    }
+  </script>
+  <div id="main">
+    <div ng-view></div>
+  </div>
+  <footer class="text-center"></footer>
   </body>
 </html>
 
